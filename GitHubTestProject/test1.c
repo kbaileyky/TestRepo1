@@ -26,6 +26,10 @@ void Test2(char *str){
 }
 
 
+void test3() {
+	return;
+}
+
 void Test 5(int stuff){
 	return stuff -1;
 }
