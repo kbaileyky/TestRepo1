@@ -26,10 +26,6 @@ void Test2(char *str){
 }
 
 
-void Test 3(char *str){
-	return *str;
-}
-
-void Test 4 (int x){
-	return x+1;
+void Test 5(int stuff){
+	return stuff -1;
 }
