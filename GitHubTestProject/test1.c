@@ -33,3 +33,5 @@ void test3() {
 void Test 5(int stuff){
 	return stuff -1;
 }
+
+void test 6();
