@@ -30,7 +30,12 @@ void test3() {
 	return;
 }
 
-void Test 5(int stuff){
+
+void test4 (int stuff){
+	return;
+}
+
+int Test 5(int stuff){
 	return stuff -1;
 }
 
