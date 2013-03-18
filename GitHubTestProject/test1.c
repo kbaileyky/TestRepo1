@@ -25,6 +25,7 @@ void Test2(char *str){
 	printf("%s", str);
 }
 
-void Test3(int n){
-	printf("%d\n", n);
+
+void Test 3(char *str){
+	return *str;
 }
