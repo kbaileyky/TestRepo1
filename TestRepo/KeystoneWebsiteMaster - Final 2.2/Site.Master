@@ -1,0 +1,201 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="KeystoneWebsite.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - .NetRackers</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="jquery.ui.combined" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-right">
+                    <section id="login">
+                        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <ul>
+                                    <!--     <li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li> -->
+                                    <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Log in</a></li>
+                                </ul>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <p>
+                                    Hello, <a id="A2" runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
+                                        <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
+                                    </a>!
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                </p>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </section>
+                </div>
+                <div class="float-left">
+                    <p class="site-title">
+                        <a id="A1" runat="server" href="~/">.NetRackers OpenStack Test Suite</a>
+                    </p>
+                </div>
+                <p>
+                    <br />
+                    <div class="dropdown">
+                        <div class="btn-toolbar" style="margin: 0; text-align: left;">
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Account/Login.aspx" runat="server">Login</a></li>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">Tenants<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Tenants/ViewTenants.aspx" runat="server">List All Tenant Information</a></li>
+                                    <li class="dropdown-submenu"><a href="#">Tenant Testing</a>
+                                        <ul class="dropdown-menu" style="padding-left: 20px; padding-top: 5px;">
+                                            <li><a href="/Tenants/TenantTestList.aspx" runat="server">List Tenant</a></li>
+                                            <li><a href="/Tenants/TenantTestCreate.aspx" runat="server">Add Tenant</a></li>
+                                            <li><a href="/Tenants/TenantTestDelete.aspx" runat="server">Delete Tenant</a></li>
+                                            <li><a href="/Tenants/TenantTestGet.aspx" runat="server">Get Tenant</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">Users<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Users_2/UsersView.aspx" runat="server">List All User Information</a></li>
+                                    <li class="dropdown-submenu"><a href="#">User Testing</a>
+                                        <ul class="dropdown-menu" style="padding-left: 20px; padding-top: 5px;">
+                                            <li><a href="/Users_2/UsersList.aspx" runat="server">List Users</a></li>
+                                            <li><a href="/Users_2/UsersAdd.aspx" runat="server">Add Users</a></li>
+                                            <li><a href="/Users_2/UsersDelete.aspx" runat="server">Delete Users</a></li>
+                                            <li><a href="/Users_2/UsersGet.aspx" runat="server">Get Users</a></li>
+                                            <li><a href="/Users_2/UsersUpdate.aspx" runat="server">Update Users</a></li>
+                                            <li><a href="/Users_2/UsersAddRole.aspx" runat="server">Add Role Users</a></li>
+                                            <li><a href="/Users_2/UsersDeleteRole.aspx" runat="server">Delete Role Users</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu"><a href="#">User Walkthrough</a>
+                                        <ul class="dropdown-menu" style="padding-left: 20px; padding-top: 5px;">
+                                            <li><a id="A3" href="/Walkthroughs_2/User_Add_Role_Walkthrough.aspx" runat="server">Add Role Users</a></li>
+                                            <li><a id="A4" href="/Walkthroughs_2/User_Add_Walkthrough.aspx" runat="server">Add Users</a></li>
+                                            <li><a id="A5" href="/Walkthroughs_2/User_Delete_Walkthrough.aspx" runat="server">Delete Users</a></li>
+                                            <li><a id="A10" href="/Walkthroughs_2/User_Get_Walkthrough.aspx" runat="server">Get Users</a></li>
+                                            <li><a id="A6" href="/Walkthroughs_2/User_Remove_Role_Walkthrough.aspx" runat="server">Delete Role Users</a></li>
+                                            <li><a id="A8" href="/Walkthroughs_2/User_Update_Password_Walkthrough.aspx" runat="server">Update Password Users</a></li>
+                                            <li><a id="A7" href="/Walkthroughs_2/User_Update_Walkthrough.aspx" runat="server">Update Users</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">Roles<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Roles/ViewRoles.aspx" runat="server">List All Role Information</a></li>
+                                    <li class="dropdown-submenu"><a href="#">Role Testing</a>
+                                        <ul class="dropdown-menu" style="padding-left: 20px; padding-top: 5px;">
+                                            <li><a href="/Roles/ListRoles.aspx" runat="server">List Roles</a></li>
+                                            <li><a href="/Roles/AddRoles.aspx" runat="server">Add Role</a></li>
+                                            <li><a href="/Roles/DeleteRoles.aspx" runat="server">Delete Role</a></li>
+                                            <li><a href="/Roles/GetRoles.aspx" runat="server">Get Role</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">Services<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Services/ViewServices.aspx" runat="server">List All Service Information</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#">Service Testing</a>
+                                        <ul class="dropdown-menu" style="padding-left: 20px; padding-top: 5px;">
+                                            <li><a href="/Services/ServiceList.aspx" runat="server">List Services</a></li>
+                                            <li><a href="/Services/ServiceCreate.aspx" runat="server">Add Service</a></li>
+                                            <li><a href="/Services/ServiceDelete.aspx" runat="server">Delete Service</a></li>
+                                            <li><a href="/Services/ServiceGet.aspx" runat="server">Get Service</a></li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">Endpoints<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Endpoints/ViewEndpoints.aspx" runat="server">List All Endpoint Information</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#">Endpoint Testing</a>
+                                        <ul class="dropdown-menu" style="padding-left: 20px; padding-top: 5px;">
+                                            <li><a href="/Endpoints/TestListEndpoints.aspx" runat="server">List Endpoints</a></li>
+                                            <li><a href="/Endpoints/TestCreateEndpoints.aspx" runat="server">Create Endpoints</a></li>
+                                            <li><a href="/Endpoints/TestDeleteEndpoints.aspx" runat="server">Delete Endpoints</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /btn-toolbar -->
+                    </div>
+                </p>
+            </div>
+        </header>
+        <div id="body">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            <section class="content-wrapper main-content clear-fix">
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>
+                        &copy; <%: DateTime.Now.Year %> - .NetRackers
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </form>
+
+
+
+
+</body>
+<%: Scripts.Render("~/bundles/bootstrap") %>
+<script>
+    $('.dropdown-toggle').dropdown()
+
+    $("#hard-code-inc")
+      .button()
+      .click(function () {
+          alert("The orignial value was 5 the new value is : " + increment2(5));
+      });
+
+    function increment2(val) {
+        return (val + 1).toString();
+    }
+</script>
+</html>
